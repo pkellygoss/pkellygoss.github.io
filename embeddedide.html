@@ -1,7 +1,8 @@
+
 <html>
   <head>
     <meta charset=utf-8>
-    <title>Browser IDE</title>
+    <title>Browser IDE - HTML</title>
     <link rel="stylesheet" href="./styles.css" type="text/css" charset="utf-8">
     <script src="jquery.min.js"></script>
     <script type='text/javascript'>
@@ -14,13 +15,15 @@
     </script>
   </head>
   <body>
-    <h1>Edit the HTML and see it in the Preview</h1>
+    <h1>Edit the HTML</h1>
+    <div style="clear:both;"></div>
+
     <div class="box">
       <div class="label">HTML</div>
       <textarea id="html" class="content">
-This is how you make text <b>bold</b>
+Hi there this is some <b>bold</b> content
 and this is <i>italic</i>.
-<p>This is a new paragraph!</p>
+<p>Pretty cool huh!</p>
 <p>What else can you type?</p>
       </textarea>
     </div>
@@ -28,5 +31,6 @@ and this is <i>italic</i>.
       <div class="label">Preview</div>
       <iframe id="preview" class="content"></iframe>
     </div>
+
   </body>
 </html>
