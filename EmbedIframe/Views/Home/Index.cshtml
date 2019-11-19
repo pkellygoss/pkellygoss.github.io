@@ -1,0 +1,51 @@
+﻿<h1 id='title'>Geography</h1>
+<span id='content'>
+    <p>The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live.</p>
+</span>
+
+<div class='immersive-reader-button' data-button-style='iconAndText' onclick='launchImmersiveReader()'></div>
+
+@section scripts {
+    <script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js'></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript'>
+    function getImmersiveReaderTokenAsync() {
+        return new Promise((resolve) => {
+            $.ajax({
+                url: '/token',
+                type: 'GET',
+                success: token => {
+                    resolve(token);
+                }
+            });
+        });
+    }
+
+    function getSubdomainAsync() {
+        return new Promise((resolve) => {
+            $.ajax({
+                url: '/subdomain',
+                type: 'GET',
+                success: subdomain => {
+                    resolve(subdomain);
+                }
+            });
+        });
+    }
+
+    async function launchImmersiveReader() {
+        const content = {
+            title: document.getElementById('title').innerText,
+            chunks: [ {
+                content: document.getElementById('content').innerText,
+                lang: 'en'
+            } ]
+        };
+
+        const token = await getImmersiveReaderTokenAsync();
+        var subdomain = await getSubdomainAsync();
+
+        ImmersiveReader.launchAsync(token, subdomain, content, { uiZIndex: 1000000 });
+    }
+    </script>
+}
